@@ -5,7 +5,7 @@ import sys
 from methods import print_error
 
 
-libname = "EXTENSION-NAME"
+libname = "godot-htc-facial-tracking-bridge"
 projectdir = "project"
 
 localEnv = Environment(tools=["default"], PLATFORM="")
@@ -38,6 +38,7 @@ Run the following command to download godot-cpp:
 env = SConscript("godot-cpp/SConstruct", {"env": env, "customs": customs})
 
 env.Append(CPPPATH=["src/"])
+env.Append(CPPPATH=["thirdparty/openxr/include/"])
 sources = Glob("src/*.cpp")
 
 if env["target"] in ["editor", "template_debug"]:
